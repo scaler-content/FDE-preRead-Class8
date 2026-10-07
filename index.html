@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Class 8 pre-read about database design, preserving existing issue records, and understanding inflated report totals.">
+  <title>Class 8 Pre-read | The Second Problem in the Same Case</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202938;
+      --muted: #5c6677;
+      --accent: #2457a7;
+      --accent-soft: #edf4ff;
+      --border: #dce3ec;
+      --surface: #ffffff;
+      --page: #f4f7fb;
+      --highlight: #fff6df;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      width: min(820px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: clamp(24px, 5vw, 52px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 12px 36px rgba(28, 44, 68, .07);
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 28px;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+    p { margin: 0 0 18px; }
+    strong { font-weight: 700; }
+    code {
+      padding: .12em .35em;
+      background: #f0f3f7;
+      border-radius: 5px;
+      font: .92em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .callout {
+      margin-top: 30px;
+      padding: 22px 24px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+    }
+    .callout h2, .questions h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .callout p { margin-bottom: 0; }
+    .questions {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    ol { margin: 10px 0 0; padding-left: 1.5rem; }
+    li { padding-left: .35rem; margin: 7px 0; }
+    .footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+    @media (max-width: 520px) {
+      main { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      body { font-size: 15px; }
+    }
+    @media print {
+      body { background: white; }
+      main { width: 100%; margin: 0; padding: 0; border: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Class 8 · Pre-read</p>
+      <h1>The Second Problem in the Same Case</h1>
+    </header>
+
+    <section aria-label="Case background">
+      <p>Last class, you connected Meridian’s orders, support cases, issues, and human reviews to investigate a customer’s delivery question. The records did not all tell the same story, so the team needed evidence before deciding what to tell the customer.</p>
+
+      <p>Now a second message arrives on that same support case: <strong>an item is missing from the order.</strong> Meridian wants to keep the existing case and record this as a separate problem. When the team tries to add it, the current database design gets in the way.</p>
+
+      <p>What should change? And how would you know that the change has preserved everything already recorded about the first issue?</p>
+
+      <p>There is another surprise. After the change, a report shows more time spent on reviews, even though no additional review work took place. The SQL runs without an error. So where did the new total come from?</p>
+    </section>
+
+    <section aria-label="What you will investigate">
+      <p>This is the kind of request an FDE encounters when a customer’s needs grow: a small change to the workflow can affect the meaning of existing data and reports. In Class 8, you will investigate the problem in MySQL Workbench, make predictions before running queries, and decide what evidence Meridian would need before trusting the result.</p>
+    </section>
+
+    <aside class="callout" aria-labelledby="before-class-heading">
+      <h2 id="before-class-heading">Before class</h2>
+      <p>You do not need to write SQL in advance. Recall what one row represents in the <code>support_cases</code>, <code>issue_records</code>, and <code>human_reviews</code> tables. Come ready to answer the three questions below.</p>
+    </aside>
+
+    <section class="questions" aria-labelledby="questions-heading">
+      <h2 id="questions-heading">Questions to consider</h2>
+      <ol>
+        <li>Where should the second problem be recorded?</li>
+        <li>What would convince you that the original issue survived a design change?</li>
+        <li>Why might a report total change when no new review took place?</li>
+      </ol>
+    </section>
+
+    <p class="footer">Read before Class 8. No advance SQL writing is required.</p>
+  </main>
+</body>
+</html>
